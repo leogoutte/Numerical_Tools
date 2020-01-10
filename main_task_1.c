@@ -50,8 +50,8 @@ int main()
 
  printf("This should be 0: %21.15e\n", x);
 
- free(u); // Always free up allocated memory after use free(v); 
- // If you do not do this, it will often lead to mtx_free(mtx, mmax); 
- // what’s commonly known as "memory leak"
+ free(u); // Always free up allocated memory after use 
+ free(v); // If you do not do this, it will often lead to 
+ mtx_free(mtx, mmax); // what’s commonly known as "memory leak"
  return 0;
 }// main

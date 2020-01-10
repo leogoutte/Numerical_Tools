@@ -3,50 +3,71 @@
 #include <math.h>
 #include "vector_mtx.h"
 
-int m, n;
-
 // implement functions from header file
 
 // vector memory alloc
-double *vector_malloc(int nmax) {
+double *vector_malloc(int nmax) 
+{
     double *vec; //pointer to a double precision variable
     vec = (double*)malloc(sizeof(double)*nmax);
+    // initialize the vector
+    for (int i=0; i<nmax; i++)
+    {
+        vec[i] = 0.0;
+    }
     return vec;
 }
 
 // matrix memory alloc
-double **mtx_malloc(int mmax, int nmax) {
+double **mtx_malloc(int mmax, int nmax) 
+{
     double **mtx; //pointer to pointer
     mtx = (double**)malloc(sizeof(double*)*mmax);
-    for (m=0; m<mmax; m++) //loop through rows
+    for (int i=0; i<mmax; i++) //loop through rows
     {
-        mtx[m] = (double*)malloc(sizeof(double)*nmax); 
+        mtx[i] = (double*)malloc(sizeof(double)*nmax); 
         // allocate 1-D vector to each row
         // each row is a 1-D vector with nmax elements
     }
+    //initialize the matrix
+    for(int i=0; i<mmax; i++)
+    {
+        for(int j=0; j<nmax; j++)
+        {
+            mtx[i][j] = 0.0;
+        }
+    }// m-loop
     return mtx;
 }
 
 // matrix memory de-allocation
-void mtx_free(double **mtx, int mmax) {
-    for (m=0; m<mmax; m++) 
+void mtx_free(double **mtx, int mmax) 
+{
+    for (int i=0; i<mmax; i++) 
     {
-        free(mtx[m]);
+        free(mtx[i]);
     }
     free(mtx);
 }
 
 // copy vector a to b (b becomes a)
-void CopyVector(double *a, double *b, int nmax) {
-    for (n=0; n<nmax; n++)
+void CopyVector(double *a, double *b, int nmax) 
+{
+    for (int i=0; i<nmax; i++)
     {
-        b[n] = a[n];
+        b[i] = a[i];
     }
-}
+} 
 
 // integer operation
-int *int_vector_malloc(int nmax) {
+int *int_vector_malloc(int nmax) 
+{
     int *integer;
-    integer = (int*)malloc(nmax);
+    integer = (int*)malloc(sizeof(int)*nmax);
+    // initialize the vector
+    for (int i=0; i<nmax; i++)
+    {
+        integer[i] = 0;
+    }
     return integer;
 }
