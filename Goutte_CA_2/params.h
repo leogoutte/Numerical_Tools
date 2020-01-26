@@ -1,3 +1,8 @@
+/* 
+This file was slightly modified from CA1 to include solver choice and delegate ReadInParams + PrintParams implementations to
+init.c
+*/
+
 #ifndef PARAMS_H // make sure that each header file
 #define PARAMS_H // is included only once
 
