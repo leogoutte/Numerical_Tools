@@ -33,8 +33,8 @@ int main()
   }
  fclose(output);
 
- output = fopen("GOUTTE_test2.dat","w"); m = 20.0; // set m=20.0 to be able to
-                                                   // plot in 2d
+ output = fopen("GOUTTE_test2.dat","w"); 
+ m = 20.0; // set m=20.0 to be able to plot in 2D                                                  // plot in 2d
  for(n=0; n<nmax; n++)
   {
    fprintf(output, "%d %e %e\n", n, mtx[m][n], 1.0/(m + n + 1.0));

@@ -51,16 +51,16 @@ void PrintParams(void)
     FILE *output; // pointer to a file
     output = fopen("InitParams.dat", "w");
     {
-        fprintf(output, "%lf\n", PARAM_DATA.mass); // write params onto
-        fprintf(output, "%lf\n", PARAM_DATA.x_i); // .dat output file
-        fprintf(output, "%lf\n", PARAM_DATA.p_i);
-        fprintf(output, "%lf\n", PARAM_DATA.t_i);
-        fprintf(output, "%lf\n", PARAM_DATA.t_f);
-        fprintf(output, "%d\n", PARAM_DATA.it_max);
-        fprintf(output, "%lf\n", PARAM_DATA.h);
-        fprintf(output, "%d\n", PARAM_DATA.num_eq);
-        fprintf(output, "%lf\n", PARAM_DATA.k_spring);
-    }
+        fprintf(output, "Mass %lf\n", PARAM_DATA.mass); // write params onto
+        fprintf(output, "Initial_position %lf\n", PARAM_DATA.x_i); // .dat output file
+        fprintf(output, "Initial_momentum %lf\n", PARAM_DATA.p_i);
+        fprintf(output, "Initial_time %lf\n", PARAM_DATA.t_i);
+        fprintf(output, "Final_time %lf\n", PARAM_DATA.t_f);
+        fprintf(output, "Num_time_intervals %d\n", PARAM_DATA.it_max);
+        fprintf(output, "Time_step_size %lf\n", PARAM_DATA.h);
+        fprintf(output, "Num_diff_eqs %d\n", PARAM_DATA.num_eq);
+        fprintf(output, "Spring_constant %lf\n", PARAM_DATA.k_spring);
+    } // done writing
     fclose(output);
 
     // print each parameter onto terminal to check

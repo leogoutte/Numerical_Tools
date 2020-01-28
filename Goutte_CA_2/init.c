@@ -69,7 +69,7 @@ void PrintParams(void) // only want to print, not print on file
 
     printf("Time step size = %lf\n", PARAM_DATA.h); // time step size
 
-    printf("choice = %d\n", PARAM_DATA.choice); // choice of solver
+    printf("Choice = %d\n", PARAM_DATA.choice); // choice of solver
 
     printf("Number of diff. eqs = %d\n", PARAM_DATA.num_eq); // no. of diff. eqs
 

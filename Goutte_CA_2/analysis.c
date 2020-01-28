@@ -25,7 +25,7 @@ void WriteResults(double *x, double *p)
 		// get x and p for time h*it
 		GetXP(x, p, &x_now, &p_now, it);
 
-		fprintf(output, "%lf/t/t%lf/t/t%lf\n", t, x_now, p_now); // write values onto file
+		fprintf(output, "%lf %lf %lf\n", t, x_now, p_now); // write values onto file
 	} // it-loop
 
 	fclose(output);

@@ -115,7 +115,7 @@ void BackwardEulerStep(double x_now, double p_now, double *x_next, double *p_nex
 	int iter, iter_max;
 
 	iter_max = 100; // set max iteration to large value
-	TOL = 10^(-10); // set tolerance to small value
+	TOL = pow(10,-10); // set tolerance to small value
 
 	x_1 = x_now;
 	p_1 = p_now;
