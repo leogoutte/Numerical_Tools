@@ -1,0 +1,9 @@
+Mass 1.000000
+Initial_position 2.000000
+Initial_momentum 3.000000
+Initial_time 4.000000
+Final_time 5.000000
+Num_time_intervals 6
+Time_step_size 0.166667
+Num_diff_eqs 7
+Spring_constant 8.000000
