@@ -5,6 +5,7 @@
 #include "params.h"  // PARAM_DATA
 #include "init.h" 
 #include "vector_mtx.h"
+#include "forces.h"
 
 // populate params in PARAM_DATA
 
@@ -97,6 +98,20 @@ void PrintParams(void)
 	} // done writing
 	fclose(output);
 
+	printf("%d\n", PARAM_DATA.num_eq);
+	for (int i = 0; i < nidx; ++i)
+	{
+		printf("%lf\n", PARAM_DATA.q_i[i]);
+	}
+	printf("%lf\n", PARAM_DATA.t_i);
+	printf("%lf\n", PARAM_DATA.t_f);
+	printf("%d\n", PARAM_DATA.it_max);
+	printf("%lf\n", PARAM_DATA.h);
+	for (int i = 0; i < nidx; ++i)
+	{
+		printf("%lf\n", PARAM_DATA.I_prin[i]);
+	}
+
 	return;
 } // PrintParams
 
@@ -110,7 +125,7 @@ void InitializeNeq(double *q)
 		q[i] = PARAM_DATA.q_i[i];
 	} // i-loop
 
-	PARAM_DATA.QVelos = (FuncPt *)malloc(sizeof(FuncPt)*num_eq); // assign memory
+	PARAM_DATA.QVelos = (FuncPt *)malloc(sizeof(FuncPt)*nidx); // assign memory
 
 	// problem specific
 	// cannot modularize since exactly three different QVeloi in forces.h, .c

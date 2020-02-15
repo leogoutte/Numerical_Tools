@@ -39,7 +39,7 @@ double QVelo1(double *q, double t, int num_elems) // dq_1/dt
 	I_3 = PARAM_DATA.I_prin[0];
 
 	f = ((I_2 - I_3)/I_1)*(q[2]*q[0]);
-
+	
 	return f;
 
 } //QVelo1
@@ -53,8 +53,8 @@ double QVelo2(double *q, double t, int num_elems) // dq_2/dt
 	I_2 = PARAM_DATA.I_prin[2];
 	I_3 = PARAM_DATA.I_prin[0];
 
-	f = ((I_3 - I_1)/I_2)*(q[3]*q[1]);
+	f = ((I_3 - I_1)/I_2)*(q[0]*q[1]);
 
 	return f;
 
-} //QVelo0
+} //QVelo2

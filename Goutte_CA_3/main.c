@@ -31,8 +31,7 @@ int main(int argc, char **argv)
  // If you do have x and p, the first half of your variables (call them q)
  // will be x and the rest p
 
- nidx = PARAM_DATA.num_eq;
- q = vector_malloc(nidx); 
+ q = vector_malloc(PARAM_DATA.num_eq); 
  InitializeNeq(q);
  EvolveNeq(q); // this will be the workhorse
  return 0;

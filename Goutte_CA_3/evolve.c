@@ -12,7 +12,7 @@
 void EvolveNeq(double *q)
 {
 	int it, it_max, i, num_eq, count;
-	double t_now, t_i, h, t_f, t_next, err, tol; 
+	double t_now, t_i, h, t_f, t_next; 
 	FuncPt *QVelos; // To pass onto another function 
 	double *q_next, *q_tmp;
 	FILE *output;
@@ -47,7 +47,7 @@ void EvolveNeq(double *q)
 	for(it = 0; it<it_max; it++)
 	{
 		// record dynamical variables at t_now
-		RecordAtStep(output, t_now, q, num_eq);
+		RecordAStep(output, t_now, q, num_eq);
 
 		// RK4 evolution
 		RK4Step(q, q_next, QVelos, t_now, h, num_eq);
@@ -58,9 +58,9 @@ void EvolveNeq(double *q)
 		q_next = q_tmp;
 
 		// advance in time for next iteration
-		t_now = t_now + h
+		t_now = t_now + h;
 	} // it-loop
-	RecordAtStep(output, t_now, q, num_eq); // for results at t_f
+	RecordAStep(output, t_now, q, num_eq); // for results at t_f
 
 	// close file
 	fclose(output);
@@ -68,8 +68,9 @@ void EvolveNeq(double *q)
 	return;
 } // EvolveNeq
 
-void RecordAtStep(FILE *output, double t_now, double *q, int num_eq)
+void RecordAStep(FILE *output, double t_now, double *q, int num_eq)
 {
+	double ene;
 	ene = KineticEnergy(q);
 
 	// add t_now
@@ -81,7 +82,6 @@ void RecordAtStep(FILE *output, double t_now, double *q, int num_eq)
 	{
 		fprintf(output, "%lf ", q[i]);
 	}
-
 	// add KE
 	fprintf(output, "%lf\n", ene);
 
@@ -97,7 +97,7 @@ void OneStepNeq(double *q_now, double *q_in, double *q_next, FuncPt *QVelos,
 	for (i=0; i<num_eq; i++)
 	{
 		q_next[i] = q_now[i] + h*(*QVelos[i])(q_in, t_in, num_eq);
-		// since QVelos[i] is itself a function (QVelo0, QVelo1, etc...)
+		// since QVelos is itself a vector (QVelo0, QVelo1, etc...)
 	}
 
 	return;
