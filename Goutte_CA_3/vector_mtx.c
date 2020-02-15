@@ -53,7 +53,7 @@ void mtx_free(double **mtx, int mmax)
 } //def
 
 // copy vector a to b (b becomes a)
-void CopyVector(double *a, double *b, int nmax) 
+void Vector_Copy(double *a, double *b, int nmax) 
 {
     for (int i=0; i<nmax; i++)
     {
@@ -74,3 +74,25 @@ int *int_vector_malloc(int nmax)
     }
     return integer;
 } //def
+
+void Vector_APlusScaledBtoA(double *a, double *b, double c, int nmax)
+{
+    for (int i = 0; i < nmax; ++i)
+    {
+        a[i] = a[i] +c*b[i]; // put back into a
+    }
+    return;
+}
+
+void Vector_Clear(double *a, int nmax)
+{
+    for (int i = 0; i < nmax; ++i)
+    {
+        a[i] = 0; // clear each element
+    }
+    return;
+}
+
+
+
+

@@ -65,6 +65,8 @@ void ReadInParams(char *input_file)
 
 	PARAM_DATA.I_prin = I_prin; // put vector into PARAM_DATA
 	fclose(input);
+
+	return;
 } // ReadInParams
 
 void PrintParams(void)
@@ -94,13 +96,15 @@ void PrintParams(void)
 		} // i-loop
 	} // done writing
 	fclose(output);
+
+	return;
 } // PrintParams
 
 void InitializeNeq(double *q)
 {
 	int nidx = PARAM_DATA.num_eq;
-	// q is already declared and memory is already allocated
 
+	// q is already declared and memory is already allocated
 	for (int i=0; i<nidx; i++) // fill up q with initial data
 	{
 		q[i] = PARAM_DATA.q_i[i];
@@ -113,6 +117,8 @@ void InitializeNeq(double *q)
 	PARAM_DATA.QVelos[0] = QVelo0;
 	PARAM_DATA.QVelos[1] = QVelo1;
 	PARAM_DATA.QVelos[2] = QVelo2;
+
+	return;
 } // InitializeNeq
 
 
