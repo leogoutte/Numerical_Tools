@@ -38,7 +38,7 @@ void EvolveNeq(double *q)
 	q_next = vector_malloc(num_eq);
 
 	// open output file for writing
-	output = fopen("coordinates.dat", "w");
+	output = fopen("coordinates.dat", "w"); // _100 for it_max = 100
 
 	// initialize time
 	t_now = t_i;
