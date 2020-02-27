@@ -89,6 +89,7 @@ void Initialize(double *x, double *p)
 	x_i = PARAM_DATA.x_i;
 	p_i = PARAM_DATA.p_i;
 	choice = PARAM_DATA.choice;
+	h = PARAM_DATA.h;
 
 	// initialize parameters corresponding to solver
 

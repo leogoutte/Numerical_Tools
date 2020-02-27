@@ -4,9 +4,11 @@
 
 #include "params.h"
 
-void ReadInParams(char *input_file);
+// same funcs
+void ReadInParams(char *input_file); 
 void PrintParams(void);
 
+// new function to initialize x and p
 void Initialize(double *x, double *p);
 
 #endif

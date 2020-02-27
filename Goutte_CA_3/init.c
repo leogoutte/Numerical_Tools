@@ -65,6 +65,7 @@ void ReadInParams(char *input_file)
 	}
 
 	PARAM_DATA.I_prin = I_prin; // put vector into PARAM_DATA
+	
 	fclose(input);
 
 	return;
@@ -98,6 +99,7 @@ void PrintParams(void)
 	} // done writing
 	fclose(output);
 
+	// print onto terminal
 	printf("%d\n", PARAM_DATA.num_eq);
 	for (int i = 0; i < nidx; ++i)
 	{
