@@ -6,12 +6,14 @@
 #include "params.h" // parameter definitions
 #include "init.h" // initialization of functions
 #include "evolve.h" // time evolution
+#include "rk4.h"
+#include "forces.h"
 
 // goal is to solve double pendulum problem
 // dynamical variables are theta_1, theta_2, p_1, and p_2
 // they correspond to q[0], q[1], q[2], and q[3] resp.
 
-int main(int argc, char const *argv[])
+int main(int argc, char **argv)
 {
 	char *input_file; // input file name
 	double *q;
@@ -27,7 +29,10 @@ int main(int argc, char const *argv[])
 
 	InitializeNeq(q);
 
+	printf("done init\n");
+
 	EvolveNeq(q); // evolve q
+	printf("done evolve\n");
 
 	return 0;
 } // main

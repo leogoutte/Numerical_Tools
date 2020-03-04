@@ -61,7 +61,7 @@ double QVelo1(double *q, double t, int num_elems)
 	// implement
 	f = l_1*Mtot*p_2 - l_2*m_2*p_1*cos12;
 	f /= l_1*l_2*l_2*m_2*(Mtot - m_2*cos12*cos12);
-	
+
 	return f;
 
 } //QVelo1
@@ -144,18 +144,18 @@ double QVelo3(double *q, double t, int num_elems)
 } //QVelo3
 
 void Translate(double *q, double *theta_1, double *theta_2, 
-	double *p_1, double *p_2, double *mass1, double *mass2, 
-	double *length1, double *length2)
+	double *p_1, double *p_2, double *m_1, double *m_2, 
+	double *l_1, double *l_2)
 {
-	theta_1 = q[0];
-	theta_2 = q[1];
-	p_1 = q[2];
-	p_2 = q[3];
+	*theta_1 = q[0];
+	*theta_2 = q[1];
+	*p_1 = q[2];
+	*p_2 = q[3];
 
-	mass1 = PARAM_DATA.mass1;
-	mass2 = PARAM_DATA.mass2;
-	length1 = PARAM_DATA.length1;
-	length2 = PARAM_DATA.length2;
+	*m_1 = PARAM_DATA.mass1;
+	*m_2 = PARAM_DATA.mass2;
+	*l_1 = PARAM_DATA.length1;
+	*l_2 = PARAM_DATA.length2;
 
 	return;
 } // Translate
@@ -165,6 +165,7 @@ double TotalEnergy(double *q)
 	// declare variables
 	double g = 9.8;
 	double H;
+	double theta_1, theta_2, p_1, p_2, l_1, l_2, m_1, m_2;
 	double cos12, Mtot;
 	double term_1, term_2, term_3;
 

@@ -47,20 +47,20 @@ void ReadInParams(char *input_file)
 	PARAM_DATA.t_f = xd;
 
 	// h
-	xd = (PARAM_DATA.t_f - PARAM_DATA.t_i)/((double) PARAM_DATA.it_max);
+	fscanf(input, "%lf", &xd);
 	PARAM_DATA.h = xd;
 
 	// mass 1
 	fscanf(input, "%lf", &xd);
 	PARAM_DATA.mass1 = xd;
 
-	// mass 2
-	fscanf(input, "%lf", &xd);
-	PARAM_DATA.mass2 = xd;
-
 	// length 1
 	fscanf(input, "%lf", &xd);
 	PARAM_DATA.length1 = xd;
+
+	// mass 2
+	fscanf(input, "%lf", &xd);
+	PARAM_DATA.mass2 = xd;
 
 	// length 2
 	fscanf(input, "%lf", &xd);
@@ -110,20 +110,21 @@ void PrintParams(void)
 	} // done writing
 	fclose(output);
 
-	// // print onto terminal
-	// printf("%d\n", PARAM_DATA.num_eq);
-	// for (int i = 0; i < nidx; ++i)
-	// {
-	// 	printf("%lf\n", PARAM_DATA.q_i[i]);
-	// }
-	// printf("%lf\n", PARAM_DATA.t_i);
-	// printf("%lf\n", PARAM_DATA.t_f);
-	// printf("%d\n", PARAM_DATA.it_max);
-	// printf("%lf\n", PARAM_DATA.h);
-	// for (int i = 0; i < nidx; ++i)
-	// {
-	// 	printf("%lf\n", PARAM_DATA.I_prin[i]);
-	// }
+	// print onto terminal
+	printf("Initial Params:\n");
+	printf("num_eq = %d\n", PARAM_DATA.num_eq);
+	for (int i = 0; i < nidx; ++i)
+	{
+		printf("%lf\n", PARAM_DATA.q_i[i]);
+	}
+	printf("t_i = %lf\n", PARAM_DATA.t_i);
+	printf("t_f = %lf\n", PARAM_DATA.t_f);
+	printf("h = %lf\n", PARAM_DATA.h);
+	printf("mass1 = %lf\n", PARAM_DATA.mass1);
+	printf("length1 = %lf\n", PARAM_DATA.length1);
+	printf("mass2 = %lf\n", PARAM_DATA.mass2);
+	printf("length2 = %lf\n", PARAM_DATA.length2);
+	printf("prec_goal = %lf\n", PARAM_DATA.prec_goal);
 
 	return;
 } // PrintParams
@@ -138,7 +139,8 @@ void InitializeNeq(double *q)
 		q[i] = PARAM_DATA.q_i[i];
 	} // i-loop
 
-	PARAM_DATA.QVelos = (FuncPt *)malloc(sizeof(FuncPt)*nidx); // assign memory
+	// assign memory to QVelos
+	PARAM_DATA.QVelos = (FuncPt *)malloc(sizeof(FuncPt)*nidx);
 
 	// problem specific
 	// have 4 generalized velocities

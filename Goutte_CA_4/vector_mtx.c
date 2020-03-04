@@ -94,14 +94,14 @@ void Vector_Clear(double *a, int nmax)
 
 double Vector_Distance(double *a, double *b, int num_elems)
 {
-    double d, sum;
+    double sum, dist;
     sum = 0.; // initialize
-    for (int i = 0; i < num_elems - 1; i++)
+    for (int i = 0; i < num_elems; i++)
     {
-        sum = sum + pow(a[i] - b[i], 2); // sum over all "dimensions"
+        sum += pow(a[i] - b[i], 2); // sum over all "dimensions"
     }
-    d = sqrt(sum);
-    return d;
+    dist = sqrt(sum);
+    return dist;
 } // Vector_Distance
 
 
