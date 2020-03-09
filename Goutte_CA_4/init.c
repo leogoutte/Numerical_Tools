@@ -110,22 +110,6 @@ void PrintParams(void)
 	} // done writing
 	fclose(output);
 
-	// print onto terminal
-	printf("Initial Params:\n");
-	printf("num_eq = %d\n", PARAM_DATA.num_eq);
-	for (int i = 0; i < nidx; ++i)
-	{
-		printf("%lf\n", PARAM_DATA.q_i[i]);
-	}
-	printf("t_i = %lf\n", PARAM_DATA.t_i);
-	printf("t_f = %lf\n", PARAM_DATA.t_f);
-	printf("h = %lf\n", PARAM_DATA.h);
-	printf("mass1 = %lf\n", PARAM_DATA.mass1);
-	printf("length1 = %lf\n", PARAM_DATA.length1);
-	printf("mass2 = %lf\n", PARAM_DATA.mass2);
-	printf("length2 = %lf\n", PARAM_DATA.length2);
-	printf("prec_goal = %lf\n", PARAM_DATA.prec_goal);
-
 	return;
 } // PrintParams
 

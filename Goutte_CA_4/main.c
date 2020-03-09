@@ -28,11 +28,8 @@ int main(int argc, char **argv)
 	q = vector_malloc(PARAM_DATA.num_eq);
 
 	InitializeNeq(q);
-
-	printf("done init\n");
-
+	
 	EvolveNeq(q); // evolve q
-	printf("done evolve\n");
 
 	return 0;
 } // main

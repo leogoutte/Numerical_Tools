@@ -88,8 +88,6 @@ double AdaptiveRK4Step(double *q, double *q_next, FuncPt *QVelos, double t_now,
 	double halfh = h/2.;
 	double t_loc = t_now + halfh;
 
-
-
 	// allocate memory to pointers
 	q_full_1 = vector_malloc(num_eq);
 	q_half = vector_malloc(num_eq);

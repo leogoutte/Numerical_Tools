@@ -11,7 +11,7 @@
 // q[0] = theta_1
 // q[1] = theta_2
 // q[2] = p_1
-// q[4] = p_2
+// q[3] = p_2
 
 // d theta_1 /dt
 // first equation for double pendulum
@@ -183,7 +183,7 @@ double TotalEnergy(double *q)
 	term_1 = (l_2/l_1)*p_1*p_1 + 
 	(l_1/l_2)*(Mtot/m_2)*p_2*p_2 -
 	2*p_1*p_2*cos12;
-	term_1 /= l_2*l_1*pow((Mtot - m_2*cos12*cos12),2);
+	term_1 /= 2*l_2*l_1*(Mtot - m_2*cos12*cos12);
 
 	term_2 = Mtot*g*l_1*cos(theta_1);
 
