@@ -7,10 +7,7 @@ sns.set_style("ticks")
 fname = "kepler.dat"
 
 # get data
-kepler_data = np.loadtxt(open(fname), delimiter = ' ')
-
-x = [item[0] for item in kepler_data]
-y = [item[1] for item in kepler_data]
+x, y = np.loadtxt(fname, delimiter = ' ', usecols = (0,1), unpack = True)
 
 # plot
 f = plt.figure()
