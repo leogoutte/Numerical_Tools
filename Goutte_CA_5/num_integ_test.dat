@@ -1,16 +1,16 @@
 Value of integral with 100 intervals using num_intervals method:
 2.665088,100
 Relative error between integral and real value:
-0.061114
+0.022417
 Value of integral with 1000 intervals using num_intervals method:
 2.732403,1000
 Relative error between integral and real value:
-0.006201
+0.002275
 Value of integral using adaptive simpson method with counts:
-5.452404,7469
+2.726202,6789
 Relative error between integral and real value:
-2.726202
-Value of integral with 7469 intervals using num_intervals method:
-2.728795,7469
+0.000000
+Value of integral with 6789 intervals using num_intervals method:
+2.736971,6789
 Relative error between integral and real value:
-0.002593
+0.003950

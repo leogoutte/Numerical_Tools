@@ -86,11 +86,11 @@ double Kepler(double r)
 	ene = -1.0;
 
 	// this is dr/dt
-	arg = pow(2/m * (ene - pphi*pphi/(2*m*r*r) + K/r) + 1e-16, 0.5); // ad a little to make sure it doesn't blow up
+	arg = fabs(2/m * (ene - pphi*pphi/(2*m*r*r) + K/r) + 1e-16); // add a little to make sure it doesn't blow up
 
 	// this is d\phi/dr
 	f = pphi/(m*r*r);
-	f /= arg;
+	f /= pow(arg, 0.5);
 
 	return f;
 } // Kepler

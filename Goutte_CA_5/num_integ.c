@@ -194,7 +194,7 @@ double AdaptiveIntegrate(double (*func)(double), double x_down, double h, double
 	{
 		ans_l += w[i] * fl[i];
 	} // i-loop
-	ans_l *= h;
+	ans_l *= h_half;
 
 	// ditto with right
 	ans_r = 0.0;
@@ -202,7 +202,7 @@ double AdaptiveIntegrate(double (*func)(double), double x_down, double h, double
 	{
 		ans_r += w[i] * fr[i];
 	} // i-loop
-	ans_r *= h;	
+	ans_r *= h_half;	
 
 	// add them up
 	ans_now = ans_l + ans_r;
@@ -255,7 +255,7 @@ double Integrate(double (*integrand)(double), double x_down, double x_up, double
 	for (int i = 0; i < 3; i++)
 	{
 		// get x to be evaluated at
-		x = x_down + i*h;
+		x = x_down + 2*i*h;
 		// store in f_prev
 		f_prev[i] = integrand(x);
 		// add to ans_prev
@@ -280,7 +280,7 @@ double Integrate(double (*integrand)(double), double x_down, double x_up, double
 /*
 double test_func(double x)
 {
-	double f, R, a;
+	double f;
 
 	f = sin(1.0/x);
 
@@ -316,7 +316,7 @@ int TestNumInteg()
 	// print onto output
 	fprintf(output, "Value of integral with %d intervals using num_intervals method:\n%lf,%d\n", 
 		num_intervals, f, num_intervals);
-	err = fabs(f - g);
+	err = fabs(f - g)/g;
 	fprintf(output, "Relative error between integral and real value:\n%lf\n", err);
 
 	// set num_intervals = 1000
@@ -326,7 +326,7 @@ int TestNumInteg()
 	// print onto output
 	fprintf(output, "Value of integral with %d intervals using num_intervals method:\n%lf,%d\n", 
 		num_intervals, f, num_intervals);
-	err = fabs(f - g);
+	err = fabs(f - g)/g;
 	fprintf(output, "Relative error between integral and real value:\n%lf\n", err);
 
 	// Set tol = 1.0e-10
@@ -340,7 +340,7 @@ int TestNumInteg()
 	// print onto output
 	fprintf(output, "Value of integral using adaptive simpson method with counts:\n%lf,%d\n", 
 		f, count);
-	err = fabs(f - g);
+	err = fabs(f - g)/g;
 	fprintf(output, "Relative error between integral and real value:\n%lf\n", err);
 
 	// Set num_intervals = count
@@ -351,7 +351,7 @@ int TestNumInteg()
 
 	fprintf(output, "Value of integral with %d intervals using num_intervals method:\n%lf,%d\n", 
 		num_intervals, f, num_intervals);
-	err = fabs(f - g);
+	err = fabs(f - g)/g;
 	fprintf(output, "Relative error between integral and real value:\n%lf\n", err);
 
 	fclose(output);
